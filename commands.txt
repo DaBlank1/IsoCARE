@@ -1,0 +1,52 @@
+isocare.py prepare_star tomoset_odd --output_star tomo_odd.star --pixel_size 10.8
+isocare.py prepare_star tomoset_even --output_star tomo_even.star --pixel_size 10.8
+
+
+isocare.py extract tomo_odd.star --subtomo_star subtomo_odd.star --subtomo_folder subtomo_odd
+isocare.py extract tomo_even.star --subtomo_star subtomo_even.star --subtomo_folder subtomo_even
+
+
+isocare.py refine subtomo_odd.star --subtomo_star_even subtomo_even.star --gpuID 0 --iterations 15 --epochs 12 --steps_per_epoch 250 
+
+
+isocare.py predict tomo_odd.star --star_file_even tomo_even.star --model ./results/model_iter05.h5 --gpuID 0
+
+
+
+
+
+
+
+isocare.py deconv tomo_even.star --snrfalloff 0.7 --deconv_folder even_deconv
+isocare.py deconv tomo_odd.star --snrfalloff 0.7 --deconv_folder odd_deconv
+
+isocare.py make_mask tomo_even.star --mask_folder even_mask --density_percentage 50 --std_percentage 50
+isocare.py make_mask tomo_odd.star --mask_folder odd_mask --density_percentage 50 --std_percentage 50
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+isonet.py deconv hiv_tomo.star --snrfalloff 0.7 --deconv_folder hiv_deconv
+
+
+isonet.py make_mask hiv_tomo.star --mask_folder hiv_mask --density_percentage 50 --std_percentage 50

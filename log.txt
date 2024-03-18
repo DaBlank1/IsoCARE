@@ -1,0 +1,530 @@
+/home/ubuntu/data/IsoNet/bin/isonet.py refine subtomo.star --gpuID 0 --iterations 5 --noise_start_iter 10,15,20,25 --noise_level 0.05,0.1,0.15,0.2
+Traceback (most recent call last):
+  File "/home/ubuntu/data/IsoNet/bin/refine.py", line 43, in run
+    check_gpu(args)
+  File "/home/ubuntu/data/IsoNet/bin/refine.py", line 221, in check_gpu
+    import tensorflow as tf
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/__init__.py", line 37, in <module>
+    from tensorflow.python.tools import module_util as _module_util
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/__init__.py", line 42, in <module>
+    from tensorflow.python import data
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/data/__init__.py", line 21, in <module>
+    from tensorflow.python.data import experimental
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/data/experimental/__init__.py", line 97, in <module>
+    from tensorflow.python.data.experimental import service
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/data/experimental/service/__init__.py", line 419, in <module>
+    from tensorflow.python.data.experimental.ops.data_service_ops import distribute
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/data/experimental/ops/data_service_ops.py", line 22, in <module>
+    from tensorflow.python.data.experimental.ops import compression_ops
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/data/experimental/ops/compression_ops.py", line 16, in <module>
+    from tensorflow.python.data.util import structure
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/data/util/structure.py", line 22, in <module>
+    from tensorflow.python.data.util import nest
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/data/util/nest.py", line 34, in <module>
+    from tensorflow.python.framework import sparse_tensor as _sparse_tensor
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/framework/sparse_tensor.py", line 25, in <module>
+    from tensorflow.python.framework import constant_op
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/framework/constant_op.py", line 25, in <module>
+    from tensorflow.python.eager import execute
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 21, in <module>
+    from tensorflow.python.framework import dtypes
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/lib/python3.9/site-packages/tensorflow/python/framework/dtypes.py", line 37, in <module>
+    _np_bfloat16 = _pywrap_bfloat16.TF_bfloat16_type()
+TypeError: Unable to convert function return value to a Python type! The signature was
+	() -> handle
+/home/ubuntu/data/IsoNet/bin/isonet.py refine subtomo.star --gpuID 0 --iterations 2
+Traceback (most recent call last):
+  File "/home/ubuntu/data/IsoNet/bin/refine.py", line 43, in run
+    check_gpu(args)
+  File "/home/ubuntu/data/IsoNet/bin/refine.py", line 221, in check_gpu
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+/home/ubuntu/data/IsoNet/bin/isonet.py refine subtomo.star --gpuID 0 --iterations 3
+Traceback (most recent call last):
+  File "/home/ubuntu/data/IsoNet/bin/refine.py", line 128, in run
+    history = train_data(args) #train based on init model and save new one as model_iter{num_iter}.h5
+  File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 93, in train_data
+    history = train3D_continue('{}/model_iter{:0>2d}.h5'.format(settings.result_dir,settings.iter_count),
+  File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 64, in train3D_continue
+    history = model.fit(train_data, validation_data=test_data,
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 52, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.UnimplementedError: Graph execution error:
+
+Detected at node 'model/down_level_0_no_0/Conv3D' defined at (most recent call last):
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 497, in <module>
+      fire.Fire(ISONET)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 141, in Fire
+      component_trace = _Fire(component, args, parsed_flag_args, context, name)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 475, in _Fire
+      component, remaining_args = _CallAndUpdateTrace(
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 691, in _CallAndUpdateTrace
+      component = fn(*varargs, **kwargs)
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 391, in refine
+      run(d_args)
+    File "/home/ubuntu/data/IsoNet/bin/refine.py", line 128, in run
+      history = train_data(args) #train based on init model and save new one as model_iter{num_iter}.h5
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 93, in train_data
+      history = train3D_continue('{}/model_iter{:0>2d}.h5'.format(settings.result_dir,settings.iter_count),
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 64, in train3D_continue
+      history = model.fit(train_data, validation_data=test_data,
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1050, in train_step
+      y_pred = self(x, training=True)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 558, in __call__
+      return super().__call__(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 512, in call
+      return self._run_internal_graph(inputs, training=training, mask=mask)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 669, in _run_internal_graph
+      outputs = node.layer(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 290, in call
+      outputs = self.convolution_op(inputs, self.kernel)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 262, in convolution_op
+      return tf.nn.convolution(
+Node: 'model/down_level_0_no_0/Conv3D'
+Detected at node 'model/down_level_0_no_0/Conv3D' defined at (most recent call last):
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 497, in <module>
+      fire.Fire(ISONET)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 141, in Fire
+      component_trace = _Fire(component, args, parsed_flag_args, context, name)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 475, in _Fire
+      component, remaining_args = _CallAndUpdateTrace(
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 691, in _CallAndUpdateTrace
+      component = fn(*varargs, **kwargs)
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 391, in refine
+      run(d_args)
+    File "/home/ubuntu/data/IsoNet/bin/refine.py", line 128, in run
+      history = train_data(args) #train based on init model and save new one as model_iter{num_iter}.h5
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 93, in train_data
+      history = train3D_continue('{}/model_iter{:0>2d}.h5'.format(settings.result_dir,settings.iter_count),
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 64, in train3D_continue
+      history = model.fit(train_data, validation_data=test_data,
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1050, in train_step
+      y_pred = self(x, training=True)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 558, in __call__
+      return super().__call__(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 512, in call
+      return self._run_internal_graph(inputs, training=training, mask=mask)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 669, in _run_internal_graph
+      outputs = node.layer(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 290, in call
+      outputs = self.convolution_op(inputs, self.kernel)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 262, in convolution_op
+      return tf.nn.convolution(
+Node: 'model/down_level_0_no_0/Conv3D'
+2 root error(s) found.
+  (0) UNIMPLEMENTED:  DNN library is not found.
+	 [[{{node model/down_level_0_no_0/Conv3D}}]]
+	 [[cond_1/then/_39/cond_1/cond/then/_204/cond_1/cond/remove_squeezable_dimensions/cond_1/pivot_t/_420/_169]]
+  (1) UNIMPLEMENTED:  DNN library is not found.
+	 [[{{node model/down_level_0_no_0/Conv3D}}]]
+0 successful operations.
+0 derived errors ignored. [Op:__inference_train_function_14719]
+/home/ubuntu/data/IsoNet/bin/isonet.py refine subtomo.star --gpuID 0 --iterations 3 --noise_start_iter 1 --noise_level 0.1
+/home/ubuntu/data/IsoNet/bin/isonet.py refine subtomo.star --gpuID 0 --iterations 2
+Traceback (most recent call last):
+  File "/home/ubuntu/data/IsoNet/bin/refine.py", line 128, in run
+    history = train_data(args) #train based on init model and save new one as model_iter{num_iter}.h5
+  File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 93, in train_data
+    history = train3D_continue('{}/model_iter{:0>2d}.h5'.format(settings.result_dir,settings.iter_count),
+  File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 64, in train3D_continue
+    history = model.fit(train_data, validation_data=test_data,
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 52, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.UnimplementedError: Graph execution error:
+
+Detected at node 'model/down_level_0_no_0/Conv3D' defined at (most recent call last):
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 497, in <module>
+      fire.Fire(ISONET)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 141, in Fire
+      component_trace = _Fire(component, args, parsed_flag_args, context, name)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 475, in _Fire
+      component, remaining_args = _CallAndUpdateTrace(
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 691, in _CallAndUpdateTrace
+      component = fn(*varargs, **kwargs)
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 391, in refine
+      run(d_args)
+    File "/home/ubuntu/data/IsoNet/bin/refine.py", line 128, in run
+      history = train_data(args) #train based on init model and save new one as model_iter{num_iter}.h5
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 93, in train_data
+      history = train3D_continue('{}/model_iter{:0>2d}.h5'.format(settings.result_dir,settings.iter_count),
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 64, in train3D_continue
+      history = model.fit(train_data, validation_data=test_data,
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1050, in train_step
+      y_pred = self(x, training=True)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 558, in __call__
+      return super().__call__(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 512, in call
+      return self._run_internal_graph(inputs, training=training, mask=mask)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 669, in _run_internal_graph
+      outputs = node.layer(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 290, in call
+      outputs = self.convolution_op(inputs, self.kernel)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 262, in convolution_op
+      return tf.nn.convolution(
+Node: 'model/down_level_0_no_0/Conv3D'
+Detected at node 'model/down_level_0_no_0/Conv3D' defined at (most recent call last):
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 497, in <module>
+      fire.Fire(ISONET)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 141, in Fire
+      component_trace = _Fire(component, args, parsed_flag_args, context, name)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 475, in _Fire
+      component, remaining_args = _CallAndUpdateTrace(
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 691, in _CallAndUpdateTrace
+      component = fn(*varargs, **kwargs)
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 391, in refine
+      run(d_args)
+    File "/home/ubuntu/data/IsoNet/bin/refine.py", line 128, in run
+      history = train_data(args) #train based on init model and save new one as model_iter{num_iter}.h5
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 93, in train_data
+      history = train3D_continue('{}/model_iter{:0>2d}.h5'.format(settings.result_dir,settings.iter_count),
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 64, in train3D_continue
+      history = model.fit(train_data, validation_data=test_data,
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1050, in train_step
+      y_pred = self(x, training=True)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 558, in __call__
+      return super().__call__(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 512, in call
+      return self._run_internal_graph(inputs, training=training, mask=mask)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 669, in _run_internal_graph
+      outputs = node.layer(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 290, in call
+      outputs = self.convolution_op(inputs, self.kernel)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 262, in convolution_op
+      return tf.nn.convolution(
+Node: 'model/down_level_0_no_0/Conv3D'
+2 root error(s) found.
+  (0) UNIMPLEMENTED:  DNN library is not found.
+	 [[{{node model/down_level_0_no_0/Conv3D}}]]
+	 [[mean_absolute_error/cond/else/_1/mean_absolute_error/cond/remove_squeezable_dimensions/Equal_1/_72]]
+  (1) UNIMPLEMENTED:  DNN library is not found.
+	 [[{{node model/down_level_0_no_0/Conv3D}}]]
+0 successful operations.
+0 derived errors ignored. [Op:__inference_train_function_14719]
+/home/ubuntu/data/IsoNet/bin/isonet.py refine subtomo.star --gpuID 0 --iterations 3
+Traceback (most recent call last):
+  File "/home/ubuntu/data/IsoNet/bin/refine.py", line 128, in run
+    history = train_data(args) #train based on init model and save new one as model_iter{num_iter}.h5
+  File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 93, in train_data
+    history = train3D_continue('{}/model_iter{:0>2d}.h5'.format(settings.result_dir,settings.iter_count),
+  File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 64, in train3D_continue
+    history = model.fit(train_data, validation_data=test_data,
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 52, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.UnimplementedError: Graph execution error:
+
+Detected at node 'model/down_level_0_no_0/Conv3D' defined at (most recent call last):
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 497, in <module>
+      fire.Fire(ISONET)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 141, in Fire
+      component_trace = _Fire(component, args, parsed_flag_args, context, name)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 475, in _Fire
+      component, remaining_args = _CallAndUpdateTrace(
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 691, in _CallAndUpdateTrace
+      component = fn(*varargs, **kwargs)
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 391, in refine
+      run(d_args)
+    File "/home/ubuntu/data/IsoNet/bin/refine.py", line 128, in run
+      history = train_data(args) #train based on init model and save new one as model_iter{num_iter}.h5
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 93, in train_data
+      history = train3D_continue('{}/model_iter{:0>2d}.h5'.format(settings.result_dir,settings.iter_count),
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 64, in train3D_continue
+      history = model.fit(train_data, validation_data=test_data,
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1050, in train_step
+      y_pred = self(x, training=True)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 558, in __call__
+      return super().__call__(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 512, in call
+      return self._run_internal_graph(inputs, training=training, mask=mask)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 669, in _run_internal_graph
+      outputs = node.layer(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 290, in call
+      outputs = self.convolution_op(inputs, self.kernel)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 262, in convolution_op
+      return tf.nn.convolution(
+Node: 'model/down_level_0_no_0/Conv3D'
+Detected at node 'model/down_level_0_no_0/Conv3D' defined at (most recent call last):
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 497, in <module>
+      fire.Fire(ISONET)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 141, in Fire
+      component_trace = _Fire(component, args, parsed_flag_args, context, name)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 475, in _Fire
+      component, remaining_args = _CallAndUpdateTrace(
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/fire/core.py", line 691, in _CallAndUpdateTrace
+      component = fn(*varargs, **kwargs)
+    File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 391, in refine
+      run(d_args)
+    File "/home/ubuntu/data/IsoNet/bin/refine.py", line 128, in run
+      history = train_data(args) #train based on init model and save new one as model_iter{num_iter}.h5
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 93, in train_data
+      history = train3D_continue('{}/model_iter{:0>2d}.h5'.format(settings.result_dir,settings.iter_count),
+    File "/home/ubuntu/data/IsoNet/models/unet/train.py", line 64, in train3D_continue
+      history = model.fit(train_data, validation_data=test_data,
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 1050, in train_step
+      y_pred = self(x, training=True)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/training.py", line 558, in __call__
+      return super().__call__(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 512, in call
+      return self._run_internal_graph(inputs, training=training, mask=mask)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/functional.py", line 669, in _run_internal_graph
+      outputs = node.layer(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/engine/base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/utils/traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 290, in call
+      outputs = self.convolution_op(inputs, self.kernel)
+    File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/isonet/lib/python3.9/site-packages/keras/layers/convolutional/base_conv.py", line 262, in convolution_op
+      return tf.nn.convolution(
+Node: 'model/down_level_0_no_0/Conv3D'
+2 root error(s) found.
+  (0) UNIMPLEMENTED:  DNN library is not found.
+	 [[{{node model/down_level_0_no_0/Conv3D}}]]
+	 [[cond/else/_29/cond/remove_squeezable_dimensions/cond_1/pivot_f/_199/_103]]
+  (1) UNIMPLEMENTED:  DNN library is not found.
+	 [[{{node model/down_level_0_no_0/Conv3D}}]]
+0 successful operations.
+0 derived errors ignored. [Op:__inference_train_function_14719]
+/home/ubuntu/data/IsoNet/bin/isonet.py refine subtomo.star --gpuID 0 --result_dir Demo
+Traceback (most recent call last):
+  File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 422, in predict
+    predict(d_args)
+  File "/home/ubuntu/data/IsoNet/bin/predict.py", line 39, in predict
+    from IsoNet.bin.refine import check_gpu
+  File "/home/ubuntu/data/IsoNet/bin/refine.py", line 2, in <module>
+    from IsoNet.preprocessing.prepare import get_cubes_list,get_noise_level, prepare_first_iter
+  File "/home/ubuntu/data/IsoNet/preprocessing/prepare.py", line 6, in <module>
+    from IsoNet.preprocessing.cubes import create_cube_seeds,crop_cubes,DataCubes
+  File "/home/ubuntu/data/IsoNet/preprocessing/cubes.py", line 6, in <module>
+    from IsoNet.util.noise_generator import make_noise_one
+  File "/home/ubuntu/data/IsoNet/util/noise_generator.py", line 8, in <module>
+    from skimage.transform import iradon
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/skimage/transform/__init__.py", line 1, in <module>
+    from .hough_transform import (hough_line, hough_line_peaks,
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/skimage/transform/hough_transform.py", line 2, in <module>
+    from scipy.spatial import cKDTree
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/scipy/spatial/__init__.py", line 105, in <module>
+    from ._kdtree import *
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/scipy/spatial/_kdtree.py", line 4, in <module>
+    from ._ckdtree import cKDTree, cKDTreeNode
+ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/scipy/spatial/_ckdtree.cpython-310-x86_64-linux-gnu.so)
+Traceback (most recent call last):
+  File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 422, in predict
+    predict(d_args)
+  File "/home/ubuntu/data/IsoNet/bin/predict.py", line 39, in predict
+    from IsoNet.bin.refine import check_gpu
+  File "/home/ubuntu/data/IsoNet/bin/refine.py", line 2, in <module>
+    from IsoNet.preprocessing.prepare import get_cubes_list,get_noise_level, prepare_first_iter
+  File "/home/ubuntu/data/IsoNet/preprocessing/prepare.py", line 6, in <module>
+    from IsoNet.preprocessing.cubes import create_cube_seeds,crop_cubes,DataCubes
+  File "/home/ubuntu/data/IsoNet/preprocessing/cubes.py", line 6, in <module>
+    from IsoNet.util.noise_generator import make_noise_one
+  File "/home/ubuntu/data/IsoNet/util/noise_generator.py", line 8, in <module>
+    from skimage.transform import iradon
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/skimage/transform/__init__.py", line 1, in <module>
+    from .hough_transform import (hough_line, hough_line_peaks,
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/skimage/transform/hough_transform.py", line 2, in <module>
+    from scipy.spatial import cKDTree
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/scipy/spatial/__init__.py", line 105, in <module>
+    from ._kdtree import *
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/scipy/spatial/_kdtree.py", line 4, in <module>
+    from ._ckdtree import cKDTree, cKDTreeNode
+ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/scipy/spatial/_ckdtree.cpython-310-x86_64-linux-gnu.so)
+Traceback (most recent call last):
+  File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 422, in predict
+    predict(d_args)
+  File "/home/ubuntu/data/IsoNet/bin/predict.py", line 39, in predict
+    from IsoNet.bin.refine import check_gpu
+  File "/home/ubuntu/data/IsoNet/bin/refine.py", line 2, in <module>
+    from IsoNet.preprocessing.prepare import get_cubes_list,get_noise_level, prepare_first_iter
+  File "/home/ubuntu/data/IsoNet/preprocessing/prepare.py", line 6, in <module>
+    from IsoNet.preprocessing.cubes import create_cube_seeds,crop_cubes,DataCubes
+  File "/home/ubuntu/data/IsoNet/preprocessing/cubes.py", line 6, in <module>
+    from IsoNet.util.noise_generator import make_noise_one
+  File "/home/ubuntu/data/IsoNet/util/noise_generator.py", line 8, in <module>
+    from skimage.transform import iradon
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/skimage/transform/__init__.py", line 1, in <module>
+    from .hough_transform import (hough_line, hough_line_peaks,
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/skimage/transform/hough_transform.py", line 2, in <module>
+    from scipy.spatial import cKDTree
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/scipy/spatial/__init__.py", line 105, in <module>
+    from ._kdtree import *
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/scipy/spatial/_kdtree.py", line 4, in <module>
+    from ._ckdtree import cKDTree, cKDTreeNode
+ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/scipy/spatial/_ckdtree.cpython-310-x86_64-linux-gnu.so)
+Traceback (most recent call last):
+  File "/home/ubuntu/data/IsoNet/bin/isonet.py", line 422, in predict
+    predict(d_args)
+  File "/home/ubuntu/data/IsoNet/bin/predict.py", line 66, in predict
+    predict_one(args,tomo_file,output_file=tomo_out_name)
+  File "/home/ubuntu/data/IsoNet/models/unet/predict.py", line 70, in predict_one
+    model = tf.keras.models.load_model(args.model)
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/keras/saving/saving_api.py", line 212, in load_model
+    return legacy_sm_saving_lib.load_model(
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/ubuntu/Miniconda3-py39_4.12.0-Linux-x86_64/envs/iso/lib/python3.10/site-packages/keras/saving/legacy/save.py", line 230, in load_model
+    raise IOError(
+OSError: No file or directory found at ./results/model_iter29.h5
+Traceback (most recent call last):
+  File "/home/ubuntu/data/IsoCARE/bin/isocare.py", line 428, in predict
+    predict(d_args)
+  File "/home/ubuntu/data/IsoCARE/bin/predict.py", line 51, in predict
+    md.read(args.star_file_odd)
+  File "/home/ubuntu/data/IsoCARE/util/metadata.py", line 129, in read
+    f = open(input_star)
+FileNotFoundError: [Errno 2] No such file or directory: 'tomo_odd.star'
+/home/ubuntu/data/IsoCARE/bin/isocare.py refine subtomo_odd.star --subtomo_star_even subtomo_even.star --gpuID 0 --iterations 15 --epochs 12 --steps_per_epoch 250
+Traceback (most recent call last):
+  File "/home/ubuntu/data/IsoCARE/bin/refine.py", line 30, in run
+    args = run_whole(args)
+  File "/home/ubuntu/data/IsoCARE/bin/refine.py", line 236, in run_whole
+    md.read(args.subtomo_star_even)
+  File "/home/ubuntu/data/IsoCARE/util/metadata.py", line 129, in read
+    f = open(input_star)
+FileNotFoundError: [Errno 2] No such file or directory: 'subtomo_even.star'
